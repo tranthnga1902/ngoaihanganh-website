@@ -1,0 +1,162 @@
+.container {
+    max-width: 1700px; /* Đặt chiều rộng tối đa cố định để tránh giãn ra */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #00a1e0, #6b2d9b);
+    padding: 70px; /* Giảm padding để khớp tốt hơn với nội dung */
+    color: #fff;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    width: 100%; /* Đảm bảo khớp với chiều rộng của container */
+}
+
+
+.news-header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 1em;
+}
+
+
+.search-button {
+    padding: 10px 15px;
+    border: none;
+    background: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    color: #6b2d9b;
+}
+
+
+.filter-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%; /* Khớp với chiều rộng của container */
+}
+
+
+.filter-label {
+    margin-right: 10px;
+    color: #6b2d9b;
+}
+
+
+.category-filter {
+    padding: 5px;
+    margin-right: 10px;
+    width: 300px; /* Chiều rộng cố định */
+}
+
+
+.reset-filter {
+    padding: 5px 10px;
+    background: #6b2d9b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%; /* Khớp với chiều rộng của container */
+    box-sizing: border-box;
+}
+
+
+.news-item {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.news-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    width: 100%; /* Đảm bảo card không vượt quá chiều rộng của cha */
+    box-sizing: border-box;
+}
+
+
+.news-card:hover {
+    transform: scale(1.02);
+}
+
+
+.news-card:hover .news-image {
+    transform: scale(1.02);
+}
+
+
+.news-image {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+
+.news-content {
+    flex: 1;
+}
+
+
+.news-category {
+    color: #6b2d9b;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+.news-title {
+    color: #4a2c6f;
+    font-size: 1.2em;
+    margin: 15px 0 0 0;
+    transition: border-bottom 0.3s ease;
+}
+
+
+.news-summary {
+    color: #333;
+    line-height: 1.5;
+}
+

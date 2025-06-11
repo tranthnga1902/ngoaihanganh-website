@@ -1,0 +1,151 @@
+/* Form tìm kiếm */
+.search-form {
+    margin: 20px 0 30px;
+    position: relative; /* Để định vị gợi ý tìm kiếm */
+    background-color: #d3d2ff; /* Nền xanh nhạt bên ngoài */
+    padding: 10px;
+    border-radius: 10px; /* Bo tròn container nếu cần */
+    max-width: 300px; /* Chiều rộng hiện tại */
+}
+
+
+
+
+
+
+/* Thanh tìm kiếm */
+.search-bar {
+    display: flex;
+    max-width: 700px; /* Tăng chiều rộng một chút cho giao diện thoáng hơn */
+    margin: 0 auto 10px;
+    border-radius: 50px; /* Bo tròn thanh tìm kiếm */
+    box-shadow: 0 4px 15px rgba(55, 0, 60, 0.1); /* Thêm bóng nhẹ */
+    overflow: hidden; /* Đảm bảo bo tròn đồng bộ */
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+    padding: 3px; /* Tạo viền gradient bao quanh */
+}
+
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none; /* Bỏ viền mặc định */
+    border-radius: 50px 0 0 50px; /* Bo tròn góc trái */
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+
+.search-bar input:focus {
+    outline: none;
+    background-color: #f8f0ff; /* Màu nền tím nhạt khi focus */
+    box-shadow: inset 0 0 5px rgba(55, 0, 60, 0.2); /* Hiệu ứng bóng bên trong */
+}
+
+
+.search-bar button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+    border-radius: 0 50px 50px 0; /* Bo tròn góc phải */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+}
+
+
+.search-bar button i {
+    font-size: 18px; /* Kích thước icon */
+}
+
+
+.search-bar button:hover {
+    background-color: #4a0a27; /* Tím sáng hơn khi hover */
+    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ */
+}
+
+
+/* Gợi ý tìm kiếm */
+.suggestions {
+    display: none;
+    max-width: 700px; /* Đồng bộ với search-bar */
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 12px; /* Bo tròn mềm mại hơn */
+    background: linear-gradient(145deg, #ffffff, #f8f0ff); /* Gradient trắng đến tím nhạt */
+    box-shadow: 0 6px 20px rgba(55, 0, 60, 0.15); /* Bóng đậm hơn */
+    max-height: 300px;
+    overflow-y: auto;
+    position: absolute; /* Đặt gợi ý ngay dưới thanh tìm kiếm */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px; /* Đồng bộ chiều rộng */
+    z-index: 1000;
+}
+
+
+.suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Tăng khoảng cách giữa ảnh và nội dung */
+    border-bottom: 1px solid #eee; /* Đường phân cách giữa các gợi ý */
+    transition: all 0.3s ease;
+}
+
+
+.suggestion-item:last-child {
+    border-bottom: none; /* Bỏ đường phân cách ở item cuối */
+}
+
+
+.suggestion-item:hover {
+    background-color: #f0e4ff; /* Tím nhạt khi hover */
+    transform: translateX(5px); /* Hiệu ứng dịch chuyển nhẹ */
+}
+
+
+.suggestion-item img {
+    width: 40px; /* Kích thước ảnh */
+    height: 40px;
+    border-radius: 50%; /* Bo tròn ảnh */
+    object-fit: contain; /* Đảm bảo ảnh không bị méo */
+    border: 2px solid var(--team-primary, #37003c); /* Viền tím */
+}
+
+
+.suggestion-item span {
+    font-size: 16px;
+    color: #37003c; /* Màu chữ tím */
+    font-weight: 500;
+}
+
+
+.no-suggestion {
+    padding: 15px;
+    color: #666;
+    text-align: center;
+    font-style: italic;
+}
+
+
+/* Kết quả tìm kiếm */
+.no-results {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-style: italic;
+    background: #f8f0ff; /* Nền tím nhạt */
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+

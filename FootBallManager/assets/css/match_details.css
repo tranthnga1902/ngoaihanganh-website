@@ -1,0 +1,331 @@
+:root {
+    --primary-color: #4a6bff;
+    --primary-dark: #3a56d4;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --light-text: #6c757d;
+    --border-color: #e0e0e0;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-color);
+    background: #f5f7fa;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.match-details-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+margin-top: 60px;
+    padding: 30px;
+    flex: 1;
+}
+
+
+
+
+
+.match-info {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.match-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.match-info h3 {
+    margin-top: 0;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.match-info h3 i {
+    color: var(--primary-color);
+}
+
+.team-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 15px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.score-display {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 25px 0;
+    color: var(--primary-dark);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+    padding: 15px;
+    border-radius: 8px;
+    width: 120px;
+    margin: 20px auto;
+}
+
+.match-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.match-meta p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--light-text);
+    font-size: 0.95rem;
+}
+
+.match-meta strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.match-meta i {
+    color: var(--primary-color);
+    width: 18px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.events-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.events-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.events-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.events-table tr:last-child td {
+    border-bottom: none;
+}
+
+.events-table tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.events-table tr:hover {
+    background-color: #f1f5ff;
+}
+
+.event-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.event-badge.goal, .event-badge.penalty_scored {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: var(--success-color);
+}
+
+.event-badge.penalty_missed, .event-badge.own_goal {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: var(--danger-color);
+}
+
+.event-badge.yellow_card {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #d39e00;
+}
+
+.event-badge.red_card {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: var(--danger-color);
+}
+
+.event-badge.assist {
+    background-color: rgba(23, 162, 184, 0.15);
+    color: #17a2b8;
+}
+
+.event-badge.save {
+    background-color: rgba(108, 117, 125, 0.15);
+    color: var(--light-text);
+}
+
+.no-events {
+    text-align: center;
+    padding: 30px;
+    color: var(--light-text);
+    font-style: italic;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.event-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+}
+
+.event-form h4 {
+    margin-top: 0;
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+}
+
+.event-form .form-group {
+    margin-bottom: 15px;
+}
+
+.event-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.event-form select,
+.event-form input,
+.event-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.event-form textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.event-form button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.event-form button:hover {
+    background-color: var(--primary-dark);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button, .delete-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.edit-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.delete-button {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.error-message, .success-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.error-message {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: var(--danger-color);
+}
+
+.success-message {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: var(--success-color);
+}

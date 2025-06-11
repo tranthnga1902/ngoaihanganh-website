@@ -1,0 +1,263 @@
+/* Container chính */
+.main-container {
+    width: 80%; /* Linh hoạt theo màn hình */
+    max-width: 1200px; /* Giới hạn tối đa */
+    min-width: 600px; /* Giới hạn tối thiểu */
+    margin: 0 auto;
+    z-index: 1; 
+    margin-top: 20px;
+}
+
+/* Header */
+.stats-header {
+    background: url(../img/thongke/nen-thongke.png), url(../img/thongke/nen-thongke1.png) ;
+    background-blend-mode: overlay;
+    background-position: center, center;
+    background-size: cover, cover;
+    width: 100%;
+    padding: 20px 0;
+    
+}
+
+.header-content-tk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px; /* Giới hạn chiều rộng nội dung */
+    margin: 0 auto; /* Căn giữa */
+    padding: 10px 20px;
+    height: auto; /* Cho phép chiều cao linh hoạt */
+}
+
+.header-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Cho phép logo và h1 xuống dòng nếu cần */
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+}
+
+.header-top h1 {
+    font-size: 40px;
+    color: #2c1e5e;
+    font-weight: 1000;
+    margin: 0;
+    flex: 1; /* Chiếm không gian còn lại */
+    min-width: 200px; /* Đảm bảo không quá hẹp */
+}
+
+.page-header__sponsor-image {
+    width: 20%; /* Linh hoạt theo container */
+    max-width: 288px; /* Giới hạn kích thước tối đa */
+    min-width: 150px; /* Đảm bảo không quá nhỏ */
+    object-fit: contain;
+    flex-shrink: 0; /* Ngăn logo co lại quá mức */
+}
+
+#nav-menutk {
+    display: flex;
+    justify-content: center; /* Căn giữa các liên kết */
+    flex-wrap: wrap; /* Cho phép menu xuống dòng nếu cần */
+    gap: 10px; /* Khoảng cách giữa các liên kết */
+    margin-top: 30px;
+    margin-bottom: -47px;
+    padding: 10px 0;
+    z-index: 2;
+    background-color: transparent;
+}
+
+#nav-menutk a {
+    text-decoration: none;
+    color: #2c1e5e;
+    background-color: rgb(235, 235, 235);
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 0 1 auto; /* Cho phép liên kết co giãn linh hoạt */
+    margin-bottom: 0px;
+}
+
+nav#nav-menutk a:hover {
+    background-color: #00cc00;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Nội dung chính */
+.main-container h2 {
+    color: #2c1e5e;
+    font-size: 25px;
+    font-weight: 1000;
+    margin-top: 50px;
+    
+}
+
+.main-container h3 {
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.stat-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cột co giãn linh hoạt */
+    gap: 20px;
+    justify-content: center;
+}
+
+.stat-box {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #d2232a;
+}
+
+.stat-box ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stat-box li {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.stat-hero {
+    margin-bottom: 5px;
+}
+
+
+.rank {
+    font-weight: bold;
+    width: 30px; /* Tăng nhẹ để căn chỉnh tốt hơn */
+    font-size: 15px;
+    text-align: center;
+}
+
+.badge-image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.logo {
+    flex: 0 0 auto;
+    margin-left: 10px;
+}
+
+.player-info,
+.team-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: -35px;
+    min-width: 150px; /* Đảm bảo không quá hẹp */
+}
+
+.player {
+    color: #2c1e5e;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.player-info .team,
+.team-info .san {
+    color: #6d4c9e;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.value {
+    color: #2c1e5e;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: right;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.stat-box li a,
+.stat-hero a {
+    text-decoration: none; /* Không gạch chân */
+    color: inherit;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+}
+
+.stat-box li a:hover,
+.stat-hero a:hover {
+    text-decoration: none; /* Không gạch chân khi hover */
+}
+
+.view-more {
+    color: #2c1e5e;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.view-more:hover {
+    background: #2ded18;
+}
+
+#them {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 100px;
+}
+
+#them a {
+    background-color: #37003c;
+    color: #fff;
+    font-size: 15px;
+    padding: 15px 30px;
+    max-width: 300px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .main-container {
+        width: 90%;
+        min-width: 0;
+    }
+
+    .header-top h1 {
+        font-size: 32px; /* Giảm kích thước tiêu đề */
+    }
+
+    .page-header__sponsor-image {
+        width: 15%;
+        max-width: 200px;
+        min-width: 120px;
+    }
+}
+
+
+
+

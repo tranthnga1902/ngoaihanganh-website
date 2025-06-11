@@ -1,0 +1,147 @@
+/* Đặt font mặc định và reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+/* Container chính */
+.player-detail-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* Phần nền header (dùng màu từ PHP) */
+.header-background {
+    height: 220px;
+    background-color: #da291c; /* fallback */
+    position: relative;
+}
+
+
+/* Số áo to ở góc phải */
+.jersey-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 120px;
+    font-weight: bold;
+    color: white;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+
+/* Thông tin chung cầu thủ */
+h2 {
+    position: relative;
+    margin: -80px 30px 20px;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+}
+
+
+/* Phần hình và thông tin */
+/* Chia layout thông tin thành 2 bảng: trái - phải */
+/* Bố cục player-info tách ảnh trái và bảng thông tin phải */
+.player-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px;
+}
+
+
+.player-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.player-info td {
+    padding: 8px 10px;
+    font-size: 16px;
+    color: #333;
+    vertical-align: top;
+}
+
+
+.player-info td:first-child {
+    font-weight: bold;
+    width: 120px;
+    color: #444;
+}
+
+
+
+
+/* Cờ quốc gia */
+.flag {
+    width: 40px;
+    vertical-align: middle;
+    margin-right: 6px;
+    border: 1px solid #ccc;
+}
+
+
+/* Bảng stats bên phải */
+/* Đưa player-stats sang bên phải */
+.player-stats {
+    padding: 20px 30px 30px 30px;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Hiển thị bảng theo chiều ngang, không có viền */
+.player-stats table {
+    border-collapse: collapse;
+    width: auto;
+}
+
+
+.player-stats td {
+    white-space: nowrap;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    border-right: 1px solid #ddd;
+}
+
+
+.player-stats td:last-child {
+    border-right: none;
+}
+
+
+/* Link quay lại */
+.back-link {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+

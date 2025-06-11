@@ -1,0 +1,318 @@
+:root {
+    --primary-dark: #395065; /* Màu xanh đậm nền chính */
+    --accent-orange: #FF5722; /* Màu cam cho điểm nhấn */
+    --accent-teal: #00BCD4; /* Màu xanh ngọc cho highlight */
+    --text-white: #FFFFFF; /* Màu chữ trắng */
+    --text-gray: #B0BEC5; /* Màu xám nhạt cho text phụ */
+    --card-bg: #2E3A46; /* Màu nền thẻ */
+    --shadow: #00000033; /* Tăng độ bóng với độ trong suốt 20% */
+    font-family: 'Quicksand', sans-serif;
+}
+
+* {
+    box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước */
+}
+
+.sidebar {
+    width: 250px;
+    background: linear-gradient(145deg, var(--primary-dark), #1A1F29); /* Thay gradient sang xanh đậm */
+    color: var(--text-white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 0 20px var(--shadow); /* Tăng độ bóng */
+    transition: width 0.3s ease-in-out; /* Hiệu ứng chuyển đổi mượt mà */
+    z-index: 1000;
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Đường viền nhẹ nhàng */
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar-header {
+    padding: 25px 20px; /* Tăng padding cho cảm giác rộng rãi */
+    text-align: center;
+    border-bottom: 2px solid var(--card-bg); /* Thay viền bằng màu nền thẻ */
+    position: sticky; /* Cố định phần header ở đầu */
+    top: 0;
+    z-index: 1001;
+    background: linear-gradient(var(--primary-dark), #1A1F29); /* Gradient đồng bộ với nền */
+    transition: padding 0.3s ease; /* Hiệu ứng khi thu gọn */
+    box-shadow: 0 4px 10px var(--shadow); /* Tăng độ bóng cho header */
+}
+
+.sidebar-header .logo {
+    width: 60px; /* Tăng kích thước logo */
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); /* Tăng độ bóng logo */
+    transition: width 0.3s ease; /* Hiệu ứng khi thu gọn */
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 22px; /* Tăng kích thước chữ */
+    font-weight: 700;
+    color: var(--text-white);
+    text-transform: uppercase; /* Chữ in hoa để chuyên nghiệp */
+    letter-spacing: 1px; /* Khoảng cách chữ tinh tế */
+    transition: opacity 0.3s ease; /* Hiệu ứng khi thu gọn */
+}
+
+.sidebar.collapsed .sidebar-header h2 {
+    opacity: 0; /* Thay vì display: none để có hiệu ứng mờ */
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 22px; /* Tăng kích thước nút */
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    transition: transform 0.3s ease, color 0.3s ease; /* Hiệu ứng quay và đổi màu */
+}
+
+.toggle-btn:hover {
+    color: var(--accent-orange); /* Thay màu hover sang cam */
+    transform: scale(1.1); /* Phóng to nhẹ khi hover */
+}
+
+/* thanh cuộn*/
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--card-bg) var(--primary-dark); /* Thay màu thanh cuộn */
+}
+
+/* Tùy chỉnh thanh cuộn cho Chrome/Safari */
+.sidebar-nav::-webkit-scrollbar {
+    width: 6px; /* Thanh cuộn mỏng hơn */
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+    background: var(--primary-dark);
+    border-radius: 3px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: var(--card-bg);
+    border-radius: 3px;
+    transition: background 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-teal); /* Thay màu hover thanh cuộn */
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin: 0; /* Tăng khoảng cách giữa các mục */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Đường phân cách tinh tế */
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px; /* Tăng padding cho cảm giác hiện đại */
+    color: var(--text-white);
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px; /* Tăng kích thước chữ */
+    font-weight: 600; /* Tăng độ đậm */
+    transition: all 0.3s ease; /* Hiệu ứng mượt mà */
+    border-radius: 5px; /* Góc bo tròn hiện đại */
+    box-shadow: none; /* Thêm độ bóng cho từng mục- độ nổi chức năng */
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background: linear-gradient(90deg, var(--card-bg), #3A4656); /* Thay gradient hover */
+    color: var(--text-white);
+    transform: translateX(5px); /* Dịch chuyển nhẹ khi hover */
+}
+
+.sidebar-nav img {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px; /* Tăng khoảng cách giữa icon và text */
+    filter: brightness(0) invert(1); /* Tăng độ tương phản cho icon */
+    transition: transform 0.3s ease; /* Hiệu ứng quay icon khi hover */
+}
+
+.sidebar-nav a:hover img,
+.sidebar-nav a.active img {
+    transform: rotate(10deg); /* Quay nhẹ icon khi hover */
+}
+
+.sidebar.collapsed .sidebar-nav img {
+    margin-right: 0;
+}
+
+.sidebar.collapsed .sidebar-nav span {
+    display: none;
+}
+
+/* Style cho nút Logout */
+.sidebar-nav .logout-item {
+    margin-top: 60px; /* Giữ khoảng cách lớn */
+    border-top: 2px solid rgba(255, 255, 255, 0.2); /* Đường viền trên (ngăn với chức năng) */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Thêm đường viền dưới (đẩy xuống) */
+    padding-top: 20px; /* Khoảng cách phía trên */
+    padding-bottom: 10px; /* Thêm khoảng cách phía dưới */
+    margin-bottom: 20px; /* Giữ khoảng cách dưới cùng */
+    box-shadow: 0 -2px 10px var(--shadow); /* Tăng độ bóng từ dưới */
+}
+
+.sidebar-nav .logout-item a {
+    color: var(--accent-orange) !important; /* Màu cam giống nút "Place Bet" */
+    background: rgba(255, 87, 34, 0.1) !important; /* Nền nhẹ dựa trên cam */
+}
+
+.sidebar-nav .logout-item a:hover {
+    background: rgba(255, 87, 34, 0.2) !important; /* Hiệu ứng hover đậm hơn */
+    transform: translateX(5px);
+}
+
+/* Khi sidebar thu gọn */
+.sidebar.collapsed .logout-item {
+    margin-top: 20px; /* Giảm khoảng cách khi thu gọn */
+    border-top: none;
+    border-bottom: none;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+    .sidebar-header h2, .sidebar-nav span {
+        display: none;
+    }
+    .sidebar-header .logo {
+        width: 40px; /* Giảm kích thước logo trên màn hình nhỏ */
+    }
+    .sidebar-nav .logout-item {
+        margin-top: 30px; /* Điều chỉnh khoảng cách trên màn hình nhỏ */
+        border-top: none;
+        border-bottom: none;
+    }
+}
+
+.admin-header {
+    background-color: var(--primary-dark); /* Thay nền header thành xanh đậm */
+    color: var(--text-white);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px var(--shadow); /* Tăng độ bóng */
+    position: fixed;
+    width: calc(100% - 250px); /* Sử dụng px để cố định */
+    top: 0;
+    left: 250px;
+    z-index: 1000;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-teal); /* Thay màu tiêu đề */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.notifications {
+    position: relative;
+}
+
+.notifications .icon {
+    width: 35px;
+    height: 35px;
+    filter: brightness(0) invert(1); /* Tăng độ tương phản icon */
+}
+
+.notifications .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--accent-orange); /* Thay màu badge thành cam */
+    color: var(--text-white);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.user-account {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-account .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-teal); /* Thêm viền cho avatar */
+}
+
+.user-account span {
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: var(--text-white);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: var(--card-bg); /* Thay nền dropdown */
+    box-shadow: 0 4px 10px var(--shadow); /* Tăng độ bóng */
+    border-radius: 5px;
+    z-index: 1001;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-white);
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--accent-teal); /* Thay màu hover dropdown */
+    color: var(--text-white);
+}
+
+h1, h2 {
+    color: var(--accent-teal); /* Thay màu tiêu đề */
+    font-weight: 700;
+}

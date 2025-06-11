@@ -1,0 +1,849 @@
+body {
+    margin: 0;
+    /* padding: 20px; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #230127;
+}
+
+
+/* Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 700px; /* Điều chỉnh chiều cao mong muốn */
+    
+}
+
+.banner .banner-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.banner .banner-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.banner .banner-slide img {
+    width: 100%;
+    height: calc(100% + 100px); /* Bù thêm 20px */
+    object-fit: cover;
+    object-position: 0 -100px; /* Di chuyển ảnh lên 20px */
+}
+
+.banner .prev-btn, .next-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+.banner .prev-btn {
+        left: 20px;
+    }
+    
+.banner .next-btn {
+        right: 20px;
+    }
+    
+.banner .prev-btn:hover, .next-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+.s0 {
+            max-width: 1450px;
+            margin: 0 auto;
+            padding: 0 15px;
+            margin-bottom: 30px;
+            
+        }
+
+.s0 h1 {
+    font-size: 23px;
+    color: #ffffff;
+    margin-top: 30px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+/* CSS cho danh sách trận đấu dạng thẻ vuông */
+.s0 .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+.s0 .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+.s0 .match-card {
+            border-radius: 3px;
+            flex: 0 0 320px;
+            height: 350px;
+            
+            background: #ffffff;
+            
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+.s0     .match-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .match-card .date {
+            margin-top: 20px;
+            color: #2b1a2c;
+            font-family: "alternate-gothic-no3", Helvetica, Arial, sans-serif;
+            font-weight: 700;
+        }
+        .match-card .team {
+            
+            display: flex;
+            margin-top: 50px;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+.s0     .team-home {
+             flex-direction: column;
+             margin-right: 35px;
+        }
+        .team-away {
+            flex-direction: column;
+        }
+
+        .match-card .team img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            
+        }
+
+        .match-info {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            
+        }
+        .match-info .time {
+            font-family: "alternate-gothic-no3", Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            background: rgb(33, 2, 54);
+            position: relative;
+            overflow: hidden;
+            padding: 5px;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+        
+        .match-info .score-placeholder {
+            margin-top: -5px;
+            font-size: 1rem;
+            color: #e53e3e;
+            font-weight: 600;
+        }
+
+        .match-info .stadium {
+            margin-top: -5px;
+            margin-bottom: 35px;
+            font-size: 0.8rem;
+            color: #718096;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #2b6cb0;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .carousel-button:hover:not(:disabled) {
+            background: #1a4971;
+        }
+
+.s0     .carousel-button:disabled {
+            background: #b0bec5;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+.s0     .carousel-button.prev {
+            left: 10px;
+        }
+
+.s0     .carousel-button.back {
+            left: 60px;
+        }
+
+.s0     .carousel-button.next {
+            right: 10px;
+        }
+
+.s0     .no-matches {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #e53e3e;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+.view-more-0 {
+    margin-bottom: 35px;
+}
+
+
+.s1     {
+        background-color: #37003c;
+        
+        margin: 0 auto;
+        padding: 1px 15px;
+        
+        height: 1300px; /* Chiều cao vừa đủ nội dung */
+}
+.s1 h1 {
+    font-size: 23px;
+    color: #ffffff;
+    margin-top: 30px;
+    text-align: left;
+    margin-left: 10px;
+}
+ 
+.s1     .page-container-1 {
+  max-width: 1450px;
+  margin: 0 auto;
+  margin-top: 20px;
+  grid-template-columns: 1fr 2.5fr 1.3fr;
+  display: grid;
+  gap: 20px; /* Khoảng cách giữa các cột */
+  max-height: 950px;
+}
+
+
+.s1 .matches, .container, .scoreboard-card {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;   
+}
+.s1 .container {
+    grid-column: 2 / 3; /* Cột phải */
+    max-width: 1420px;
+    margin: 0 auto;
+    padding: 20px;
+    height: fit-content; /* Chiều cao vừa đủ nội dung */
+    background-color: #ffffff58;
+    
+    
+}
+.s1 .matches {
+    margin-left: 0;
+    
+}
+.s1 .scoreboard-card {
+grid-column: 3 / 4; /* Cột phải */
+}
+/* -------------------------------------------------------- */
+
+/* Container chính */
+.matches {
+    --match-primary: #2c3e50;
+    --match-accent: #3498db;
+    --match-bg: #ffffff;
+    --match-border: #e0e0e0;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --live-indicator: #e74c3c;
+    --date-header-bg: #f8f9fa;
+    
+    background: var(--match-bg);
+    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+.matchweek-banner {
+  background-image:  url(../img/thongke/trangchu1.png); /* Đường dẫn ảnh nền */
+  background-size: cover; /* Phủ kín nền */
+  background-position: center; /* Căn giữa ảnh */
+  padding: 30px 0; /* Khoảng cách bên trong */
+  text-align: center; /* Căn giữa nội dung */
+  width: 100%; /* Full chiều rộng */
+  object-fit: contain;
+      background-position: 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.matchweek-title {
+  display: inline-flex; /* Flex nhưng co lại theo nội dung */
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  color: white; /* Chữ màu trắng (nếu nền tối) */
+  
+  margin: 0;
+  padding: 10px 20px;
+  
+  border-radius: 5px;
+}
+/* Tiêu đề matchweek */
+
+
+/* Nhóm theo ngày */
+.date-group {
+    margin-bottom: 8px;
+}
+
+.date-header {
+    background-color: var(--date-header-bg);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--match-border);
+}
+
+/* Danh sách trận đấu */
+.date-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Mỗi trận đấu */
+.match {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--match-border);
+}
+
+.match-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Đội bóng */
+.team {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0; /* Cho phép text truncate */
+}
+
+.team.away {
+    justify-content: flex-end;
+}
+
+.team img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin: 0 8px;
+}
+
+.team-name {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80px;
+}
+
+/* Tỉ số */
+.score-placeholder {
+    
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--match-primary);
+    min-width: 60px;
+    text-align: center;
+    padding: 0 8px;
+}
+
+/* Nút xem thêm */
+.view-more {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    color: var(--match-accent);
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.2s;
+    
+    
+}
+
+.view-more:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Khi không có trận đấu */
+.no-matches {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Hiệu ứng hover */
+.match:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* --------------------------------------------------- */
+
+
+/* Thẻ tin tức */
+.news-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* Liên kết tin tức */
+.news-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Tiêu đề tin tức */
+.news-title {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+}
+
+/* Hình ảnh tin tức */
+.news-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Nội dung tin tức */
+.news-content {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Liên kết "Đọc tiếp" */
+.read-more {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.news-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    color: #37003c;
+    
+}
+
+.news-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-title {
+    font-size: 24px;
+    color: #37003c;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.news-description {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.side-news {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-news-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.side-news-card:hover {
+    transform: translateY(-5px);
+}
+
+.side-news-image {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.side-news-content {
+    padding: 24px;
+    /* width: 100%;
+    box-sizing: border-box; */
+}
+
+.side-news-title {
+    font-size: 18px;
+    color: #37003c;
+    font-weight: bold;
+    margin: 1px;
+}
+
+.side-news-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ------------------------*/
+
+.matchweek-table {
+    width: 90%; /* Ensure the table takes full width */
+}
+
+.matchweek-table th,
+.matchweek-table td {
+    padding: 8px; /* Add padding for spacing */
+    font-size: 16px;
+}
+
+/*  -------- -----------------------------------------------      */
+
+
+/* Scoreboard card container */
+.scoreboard-card {
+    --scoreboard-accent: #3a5fcd; /* Màu chủ đạo */
+    --scoreboard-bg: #ffffff; /* Màu nền */
+    --scoreboard-border: #e0e0e0; /* Màu viền */
+    --text-primary: #333333; /* Màu chữ chính */
+    --text-secondary: #666666; /* Màu chữ phụ */
+    --row-hover: #f5f5f5; /* Màu khi hover */
+    
+    background: var(--scoreboard-bg);
+    border: 1px solid var(--scoreboard-border);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Thêm ký hiệu đặc trưng cho scoreboard */
+.scoreboard-card::before {
+    content: "⚽";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 20px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.scoreboard-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--scoreboard-accent);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--scoreboard-border);
+    position: relative;
+    z-index: 1;
+}
+
+/* Bảng xếp hạng */
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+}
+
+.standings-table th, 
+.standings-table td {
+    padding: 10px 6px;
+    text-align: center;
+    border-bottom: 1px solid var(--scoreboard-border);
+}
+
+.standings-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-size: 13px;
+    background-color: #f9f9f9;
+}
+
+.standings-table tr:hover td {
+    background-color: var(--row-hover);
+}
+
+/* Cột vị trí - làm nổi bật top 4 */
+.standings-table tr:nth-child(-n+4) td:first-child {
+    font-weight: bold;
+    color: var(--scoreboard-accent);
+}
+
+/* Ô chứa thông tin đội bóng */
+.standings-table td:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 12px;
+    text-align: left;
+}
+
+.team-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.team-abbr {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Căn chỉnh các cột số liệu */
+.standings-table td:nth-child(3),
+.standings-table td:nth-child(4),
+.standings-table td:nth-child(5) {
+    
+    font-weight: 500;
+}
+
+/* Hiệu ứng khi không có dữ liệu */
+.scoreboard-card p.no-data {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 20px 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.scoreboard-card p.error-help {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin-top: 4px;
+}
+/*-------------------------------------------------------*/
+
+
+.s2 {
+    
+    /* 200px */
+    
+    background-color: #f3f3f3;
+    
+        margin: 0 auto;
+        padding: 0 15px;
+        
+        height: 800px;
+        
+}
+
+
+.stat4 {
+    
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các cột */
+    align-items: flex-start; /* Căn theo đầu */
+}
+
+.stat4 h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.column-1 {
+    margin-top: 50px;
+    width: 33.33%;
+    padding: 15px;
+    background: white;
+    border-radius: 10px; /* Bo góc khung */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    overflow: hidden; /* Ẩn phần ảnh thừa khi bo góc */
+}
+
+.column-1 img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bo góc ảnh */
+    display: block;
+    transition: transform 0.3s ease; /* Hiệu ứng phóng to khi hover */
+}
+
+.column-1 img:hover {
+    transform: scale(1.03); /* Phóng to nhẹ khi hover */
+}
+
+/* Cột nội dung bên phải */
+.column-2 {
+    width: 66.66%;
+    padding: 30px;
+}
+
+.column-2 h2 {
+    color: #1a1a1a;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.column-2 h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #e63946, #457b9d);
+}
+
+/* Container các card */
+.container-col2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Card item */
+.card-col {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.card-col:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-col h3 {
+    color: #333;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    background: linear-gradient(to right, #e63946, #457b9d);
+    
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.card-col img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 15px;
+}
+
+.card-col p {
+    color: #555;
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.card-col p:first-of-type {
+    font-weight: bold;
+    color: #333;
+}
+
+
+
+
+
+/* ---------------------------------------------------- */

@@ -1,0 +1,385 @@
+/* Container chính */
+.container {
+    max-width: 95%;
+    background: #e7e9ff;
+    margin: 0 auto; /* căn giữa */
+    padding: 20px;
+}
+
+
+.container h2 {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block; /* Cần thiết để gradient hoạt động */
+}
+
+
+/* Danh sách câu lạc bộ */
+.team-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.team-card {
+    background-color: #c1c4ff;
+    border: 1px solid #eaebff;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+
+.team-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.team-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+.team-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+
+.team-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+
+.team-card p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+}
+
+
+/* Chi tiết câu lạc bộ */
+.team-detail {
+    font-family: 'Inter', sans-serif;
+    background-color: #fbefff;
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.team-info {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+.team-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.team-logo-large {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 2px solid var(--team-primary);
+    padding: 5px;
+    background: #fff;
+}
+
+
+/* Các liên kết mạng xã hội */
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.facebook { background-color: #3b5998; }
+.twitter { background-color: #1da1f2; }
+.instagram { background-color: #e1306c; }
+.youtube { background-color: #ff0000; }
+.website { background-color: var(--team-primary); }
+
+
+.team-info-details {
+    flex: 1;
+    padding: 0 15px;
+}
+
+
+.team-info-details p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+
+.stadium-photo {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    border-radius: 8px;
+    margin: 10px 0;
+    object-fit: cover;
+    border: 2px solid var(--team-primary);
+}
+
+
+/* Bọc ảnh HLV */
+.manager-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+    width: 200px;
+}
+
+
+/* Ảnh HLV */
+.manager_photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--team-primary);
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+/* Tooltip HLV */
+.manager-tooltip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid var(--team-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 1000;
+    font-size: 0.9em;
+    color: #333;
+}
+
+
+.manager-wrapper:hover .manager-tooltip {
+    display: block;
+}
+
+
+hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--team-primary), var(--team-secondary));
+    margin: 20px 0;
+}
+
+
+/* Bố cục chính */
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+
+.quick-links {
+    flex: 1;
+    max-width: 300px;
+}
+
+
+.news-section {
+    flex: 2;
+}
+
+
+/* Liên kết nhanh */
+.quick-links h3 {
+    border-bottom: 2px solid var(--team-primary);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.quick-links li {
+    margin-bottom: 10px;
+}
+
+
+.quick-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+.quick-link i {
+    color: var(--team-primary);
+}
+
+
+.quick-link:hover {
+    background-color: var(--team-primary);
+    color: white;
+}
+
+
+.quick-link:hover i {
+    color: white;
+}
+
+
+/* Tin tức */
+.news-list {
+    margin-top: 10px;
+}
+
+
+.news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+
+.news-item:hover {
+    border-color: var(--team-primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.news-image {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    border: 2px solid var(--team-primary);
+}
+
+
+.news-content {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+.news-content h4 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+}
+
+
+.news-content h4 a {
+    color: var(--team-primary);
+    text-decoration: none;
+}
+
+
+.news-content h4 a:hover {
+    text-decoration: underline;
+}
+
+
+.news-content p {
+    margin: 5px 0;
+    color: #444;
+    line-height: 1.5;
+}
+
+
+.toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+
+.toggle-btn:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+

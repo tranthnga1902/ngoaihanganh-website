@@ -1,0 +1,298 @@
+/* Biến màu sắc */
+:root {
+    --primary-dark: #3b5998;
+    --primary-light: #3b5998;
+    --accent-teal: #00bcd4;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --background-light: #455A64; /* Thay đổi thành màu xanh đen đậm, phù hợp với ảnh 1 */
+    --background-white: #ffffff;
+    --border-light: #e0e0e0;
+    --error-red: #e74c3c;
+    --success-green: #2ecc71;
+}
+
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-light); /* Sử dụng màu xanh đen */
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Thanh bên (sidebar) */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-dark);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    color: var(--text-light);
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: var(--primary-light);
+}
+
+/* Nội dung chính */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    padding-top: 60px;
+}
+
+/* Thông báo */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.alert.success {
+    background-color: var(--success-green);
+    color: var(--text-light);
+}
+
+.alert.error {
+    background-color: var(--error-red);
+    color: var(--text-light);
+}
+
+/* Card (cho phần tìm kiếm, lọc, bảng) */
+.card {
+    background-color: #B0BEC5; /* Giữ màu bạn đã chọn */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(221, 226, 235, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    background-color: #CFD8DC;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+/* Form tìm kiếm và lọc */
+.search-form, .filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-dark);
+    font-size: 0.875rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-light);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
+}
+
+/* Autocomplete */
+.autocomplete {
+    position: relative;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid var(--border-light);
+    border-top: none;
+    background-color: var(--background-white);
+    z-index: 99;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 0 0 5px 5px;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.autocomplete-items div:hover {
+    background-color: var(--background-light);
+}
+
+/* Nút */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn.add-btn {
+    background-color: var(--accent-teal);
+    color: var(--text-light);
+}
+
+.btn.lock-btn {
+    background-color: var(--error-red);
+    color: var(--text-light);
+}
+
+/* Bảng */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th,
+.user-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.875rem;
+}
+
+.user-table th {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.user-table tbody tr:hover {
+    background-color: #ECEFF1;
+}
+
+.locked {
+    color: var(--error-red);
+    font-style: italic;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--background-white);
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.close:hover {
+    color: var(--error-red);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+        padding-top: 80px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .user-table thead {
+        display: none;
+    }
+
+    .user-table tr {
+        display: block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--border-light);
+    }
+
+    .user-table td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .user-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        text-align: left;
+        font-weight: 500;
+    }
+}

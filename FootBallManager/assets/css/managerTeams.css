@@ -1,0 +1,508 @@
+:root {
+    --primary-dark: #395065;
+    --accent-orange: #FF5722;
+    --accent-teal: #00BCD4;
+    --text-white: #FFFFFF;
+    --text-gray: #B0BEC5;
+    --card-bg: #2E3A46;
+    --shadow: #00000033;
+    --sidebar-width: 250px;
+    --sidebar-collapsed-width: 60px;
+}
+
+body {
+    background-color: var(--primary-dark);
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    margin-top: 60px;
+    padding: 20px;
+    flex: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+.admin-header {
+    width: calc(100% - var(--sidebar-width));
+    left: var(--sidebar-width);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .admin-header {
+    width: calc(100% - var(--sidebar-collapsed-width));
+    left: var(--sidebar-collapsed-width);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background-color: rgba(0, 188, 212, 0.2);
+    color: var(--accent-teal);
+}
+
+.alert.error {
+    background-color: rgba(255, 87, 34, 0.2);
+    color: var(--accent-orange);
+}
+
+.team-form, .filter-form, .search-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    color: var(--text-gray);
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
+    padding: 8px;
+    border: 1px solid var(--text-gray);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #45cfe4;
+    font-family: 'Quicksand', sans-serif;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23B0BEC5' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+}
+
+.form-group select option {
+    background-color: var(--card-bg);
+    color: #45cfe4;
+    padding: 8px;
+}
+
+.form-group input[type="file"] {
+    padding: 3px;
+}
+
+.btn {
+    padding: 8px 15px;
+    background-color: var(--accent-teal);
+    color: var(--text-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background-color: var(--accent-orange);
+}
+
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.team-table th, .team-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-table th {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--accent-teal);
+    font-weight: 600;
+}
+
+.team-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.team-table td {
+    color: var(--text-gray);
+}
+
+.team-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-teal);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px var(--shadow);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close {
+    color: var(--text-gray);
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--accent-orange);
+}
+
+/* Layout ảnh bên trái, form bên phải */
+.modal-body {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.modal-image {
+    flex: 0 0 150px;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--accent-teal);
+}
+
+.modal-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Style cho nút dấu cộng */
+.stadium-group {
+    position: relative;
+}
+
+.stadium-select-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stadium-select-wrapper select {
+    flex: 1;
+}
+
+.add-stadium-btn {
+    background-color: var(--accent-teal);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-stadium-btn:hover {
+    background-color: var(--accent-orange);
+}
+
+.add-stadium-btn i {
+    color: var(--text-white);
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .team-form, .filter-form, .search-form {
+        grid-template-columns: 1fr;
+    }
+
+    .team-table {
+        font-size: 14px;
+    }
+
+    .team-table th, .team-table td {
+        padding: 8px 10px;
+    }
+
+    .modal-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-image {
+        flex: none;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Modal thông báo */
+.notification-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.notification-content {
+    background-color: #395065;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+.notification-content.success {
+    border: 3px solid #28a745;
+}
+.notification-content.error {
+    border: 3px solid #dc3545;
+}
+.notification-content.info {
+    border: 3px solid #17a2b8;
+}
+.notification-content h3 {
+    margin: 0 0 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.notification-content p {
+    margin: 0 0 25px;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+.notification-content .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+.notification-content .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Modal xác nhận xóa */
+.confirm-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.confirm-content {
+    background-color: #395065;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    border: 3px solid #dc3545;
+}
+.confirm-content h3 {
+    margin: 0 0 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #dc3545;
+}
+.confirm-content p {
+    margin: 0 0 25px;
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #dc3545; /* Đổi màu chữ thành đỏ */
+    font-weight: 500; /* Tăng độ đậm để nổi bật */
+}
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.confirm-buttons .btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+.btn.cancel {
+    background-color: #6c757d;
+    color: #fff;
+}
+.btn.cancel:hover {
+    background-color: #5a6268;
+}
+.btn.confirm {
+    background-color: #fff;
+    color: #dc3545;
+    font-weight: bold;
+    border: 2px solid #dc3545;
+    text-transform: uppercase;
+}
+.btn.confirm:hover {
+    background-color: #f8d7da;
+    color: #c82333;
+    border-color: #c82333;
+}
+
+/* Modal sửa sân vận động */
+#editStadiumModal .modal-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+#editStadiumModal .form-group {
+    flex: 1 1 45%;
+}
+#editStadiumModal .form-group.full-width {
+    flex: 1 1 100%;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column; /* Đảm bảo các phần tử con nằm dọc */
+    align-items: center;
+}
+
+/* Đảm bảo hình ảnh và form nằm dọc */
+.modal-image,
+.modal-form {
+    width: 100%; /* Đảm bảo độ rộng khớp với modal-content */
+    margin-bottom: 20px; /* Khoảng cách giữa hình ảnh và form */
+}
+
+/* Đảm bảo các form-group nằm dọc */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Đặt label và input nằm dọc */
+    margin-bottom: 15px; /* Khoảng cách giữa các form-group */
+    width: 100%; /* Đảm bảo độ rộng khớp với modal-form */
+}
+
+.form-group label {
+    margin-bottom: 5px; /* Khoảng cách giữa label và input */
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Đảm bảo input chiếm toàn bộ chiều rộng của form-group */
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Điều chỉnh hình ảnh */
+.modal-image img {
+    width: 100%; /* Ảnh chiếm toàn bộ chiều rộng của phần chứa */
+    max-width: 300px; /* Kích thước tối đa của ảnh (có thể tùy chỉnh) */
+    max-height: 250px; /* Giữ nguyên tỷ lệ khung hình */
+    object-fit: contain; /* Đảm bảo toàn bộ ảnh được hiển thị, không bị cắt */
+    image-rendering: auto; /* Tránh làm mờ ảnh khi thay đổi kích thước */
+    border-radius: 4px; /* Tùy chọn: thêm bo góc cho ảnh */
+}
+
+/* Điều chỉnh nút close */
+.close {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+.close:hover {
+    color: #555;
+}

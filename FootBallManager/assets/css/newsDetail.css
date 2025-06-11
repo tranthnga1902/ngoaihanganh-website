@@ -1,0 +1,293 @@
+/* newsDetail.css - Vintage Newspaper Style (No Animation) */
+
+/* ====================
+   BIẾN CSS (VARIABLES)
+   ==================== */
+:root {
+    /* Màu sắc */
+    --paper: #f5f0e6;           /* Màu nền giấy vàng nhạt */
+    --paper-dark: #e8dfc8;      /* Màu giấy đậm hơn */
+    --ink: #2c2416;             /* Màu mực báo chính */
+    --ink-light: #5a4f3a;       /* Màu mực nhạt cho text phụ */
+    --accent: #8b0000;          /* Màu nhấn đỏ cổ điển */
+    --border: #d1c7b7;          /* Màu viền */
+    
+    /* Hiệu ứng */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Đổ bóng */
+    --radius: 3px;              /* Độ bo góc */
+    
+    /* Kích thước */
+    --space: 28px;              /* Khoảng cách tiêu chuẩn */
+    --max-width: 800px;         /* Chiều rộng tối đa */
+}
+
+/* ====================
+   RESET & BASE STYLES
+   ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Old Standard TT', 'Times New Roman', serif;
+    line-height: 1.6;
+    color: var(--ink);
+    background-color: #e0d8c0;  /* Màu nền vintage */
+    padding: 0;
+    margin: 0;
+    /* Hình nền kẻ ô mờ */
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 L100 0 L100 100 L0 100 Z" fill="none" stroke="%23d1c7b7" stroke-width="0.5" stroke-dasharray="5,5" /></svg>');
+    background-size: 40px 40px;
+}
+
+/* ====================
+   LAYOUT CHÍNH
+   ==================== */
+.container {
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 0 var(--space);
+}
+
+.main-content {
+    background: var(--paper);
+    padding: calc(var(--space) * 1.5);
+    margin-top: var(--space);
+    position: relative;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    
+    /* Hiệu ứng giấy kẻ ô mờ */
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    
+    /* Hiệu ứng rách mép giấy trên */
+    &::before {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 100%;
+        left: 0;
+        top: -8px;
+        background-image: url('data:image/svg+xml;utf8,<svg width="100" height="16" viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 Q 5 8 0 16 M0 16 Q 15 8 30 16 M30 16 Q 35 8 50 16 M50 16 Q 55 8 70 16 M70 16 Q 75 8 90 16 M90 16 Q 95 8 100 0" fill="none" stroke="%23d1c7b7" stroke-width="1" /></svg>');
+        background-repeat: repeat-x;
+        transform: rotate(180deg);
+    }
+    
+    /* Hiệu ứng rách mép giấy dưới */
+    &::after {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 100%;
+        left: 0;
+        bottom: -8px;
+        background-image: url('data:image/svg+xml;utf8,<svg width="100" height="16" viewBox="0 0 100 16" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 Q 5 8 0 16 M0 16 Q 15 8 30 16 M30 16 Q 35 8 50 16 M50 16 Q 55 8 70 16 M70 16 Q 75 8 90 16 M90 16 Q 95 8 100 0" fill="none" stroke="%23d1c7b7" stroke-width="1" /></svg>');
+        background-repeat: repeat-x;
+    }
+}
+
+/* ====================
+   KIỂU CHỮ (TYPOGRAPHY)
+   ==================== */
+h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--accent);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.5px;
+    text-transform: uppercase; /* Viết hoa toàn bộ */
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 2.5rem 0 1.5rem;
+    color: var(--ink);
+    font-style: italic; /* Nghiêng */
+    position: relative;
+    padding-left: 1rem;
+    
+    /* Vạch đỏ bên trái */
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--accent);
+    }
+}
+
+p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify; /* Căn đều hai bên */
+    hyphens: auto;       /* Tự động gạch nối từ */
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* Text phụ (ngày tháng, tác giả) */
+small, .meta-text {
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    font-style: italic;
+}
+
+/* ====================
+   CHI TIẾT TIN TỨC
+   ==================== */
+.news-detail {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+/* Ảnh bài báo */
+.detail-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    margin: 2rem 0;
+    border: 8px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    
+    /* Viền trang trí bên ngoài ảnh */
+    &::after {
+        content: "";
+        position: absolute;
+        inset: -12px;
+        border: 1px solid var(--border);
+        pointer-events: none;
+    }
+}
+
+/* Thông tin meta (ngày đăng, tác giả) */
+.meta-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border);
+    color: var(--ink-light);
+    font-size: 0.9rem;
+}
+
+/* ====================
+   PHẦN BÌNH LUẬN
+   ==================== */
+.comment-list {
+    list-style: none;
+    margin: 3rem 0;
+}
+
+.comment-list li {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    position: relative;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Dấu ngoặc kép lớn trang trí */
+    &::before {
+        content: "“";
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        font-size: 4rem;
+        color: rgba(0, 0, 0, 0.1);
+        font-family: serif;
+        line-height: 1;
+    }
+}
+
+.comment-list p:first-child {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.comment-list small {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* ====================
+   NÚT (BUTTONS)
+   ==================== */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Old Standard TT', serif;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    /* Hiệu ứng ánh sáng trượt */
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: all 0.5s ease;
+    }
+    
+    /* Hiệu ứng khi hover */
+    &:hover {
+        background: var(--accent);
+        
+        &::after {
+            left: 100%;
+        }
+    }
+}
+
+/* ====================
+   RESPONSIVE DESIGN
+   ==================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .main-content {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .detail-image {
+        margin: 1.5rem 0;
+    }
+}
