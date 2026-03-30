@@ -1,0 +1,51 @@
+# PHP
+*.php~
+*.php.bak
+*.log
+*.tmp
+
+# Environment / Config
+.env
+.env.*
+.env.local
+config.local.php
+
+# Database
+*.sql.bak
+*.sqlite
+*.sqlite3
+
+# IDE / Editor
+.idea/
+.vscode/
+*.sublime-*
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+error_log
+
+# Uploads (optional - uncomment if needed)
+# uploads/*
+
+# Composer
+/vendor/
+composer.phar
+
+# Node (if any)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Cache
+/cache/
+/tmp/
+/temp/
+
+# System
+*.bak
+*.backup
